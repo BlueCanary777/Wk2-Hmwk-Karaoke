@@ -23,20 +23,15 @@ class Room
   end
 
   def room_full?
-    if @guests.count==@capacity
-      return true
+    @guests.count==@capacity
+  end
+
+  def guest_not_admitted
+    if room_full?
+      return "Sorry we have reached capacity."
     else
-      return false
+      return "Welcome"
     end
   end
 
   end
-
-
-  # def guest_not_admitted
-  #   if room_full?
-  #     return "Sorry we have reached capacity."
-  #   else
-  #     return "Welcome"
-  #   end
-  # end

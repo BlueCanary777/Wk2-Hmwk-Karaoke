@@ -7,7 +7,7 @@ class Guest
     @wallet = wallet
   end
 
-  def entry(room)
+  def wallet_payment(room)
     @wallet -= room.price()
   end
 

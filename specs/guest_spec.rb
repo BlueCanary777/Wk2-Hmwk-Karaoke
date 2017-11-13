@@ -1,7 +1,7 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../guest.rb')
-# require_relative('../room.rb')
+require_relative('../room.rb')
 
 
 class TestGuest < MiniTest::Test
@@ -11,6 +11,8 @@ class TestGuest < MiniTest::Test
     @guest2 = Guest.new("Jill", 2.0)
     @guest3 = Guest.new("Kevin", 3.0)
     @guest4 = Guest.new("Sarah", 10.0)
+
+    @room = Room.new("Lizard Lounge", 3, 3.0)
   end
   def test_guest_has_name
     assert_equal("Pat", @guest1.name())
@@ -18,5 +20,10 @@ class TestGuest < MiniTest::Test
 
   def test_guest_has_money
     assert_equal(5.0, @guest1.wallet())
+  end
+
+  def test_wallet_payment
+    @guest1.wallet_payment(@room)
+    assert_equal(2.0, @guest1.wallet())
   end
 end
